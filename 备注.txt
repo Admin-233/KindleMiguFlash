@@ -1,0 +1,5 @@
+串口软件
+fastboot
+fastboot驱动
+adb
+请自行查找

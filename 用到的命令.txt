@@ -1,0 +1,16 @@
+进入fastboot(参考https://www.bilibili.com/video/BV1mV4y1H7aQ)
+setenv bootcmd 'mmc dev ${mmcdev};if mmc rescan; then fuse override 4 6 0x00000020; run testboot; fi;'
+
+saveenv
+
+fuse override 4 6 0x00000020
+
+fastboot
+
+用于获取权限(参考https://post.smzdm.com/p/a276vg0d/)
+setenv bootargs 'console=ttymxc0,115200 init=/init androidboot.console=ttymxc0 consoleblank=0 androidboot.hardware=freescale androidboot.selinux=permissive uart_at_4M androidboot.serialno=XXXXXXXXX androidboot.unlocked_kernel=false androidboot.prod=1'
+saveenv
+
+开启adb
+touch /data/system/FACTORYMODE 
+reboot
